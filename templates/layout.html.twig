@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="libraryApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Hairil">
+
+        <title>Perpustakaan Opsigo</title>
+
+        <link href="{{app.asset_component}}bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{app.asset_component}}sb-admin-2/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+        <link href="{{app.asset_component}}sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet">
+        <link href="{{app.asset_component}}sb-admin-2/vendor/morrisjs/morris.css" rel="stylesheet">
+        <link href="{{app.asset_component}}font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <link href="{{app.asset_css}}main.css" rel="stylesheet">
+
+        <script>
+            var base_url = "{{app.base_url}}";
+        </script>    
+    </head>
+    <body>
+        <div id="wrapper">
+            <!-- Navigation -->
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Perpustakaan Opsigo</a>
+                </div>
+
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li class="sidebar-search">
+                                <div class="input-group custom-search-form">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="{{path('home')}}"><i class="fa fa-desktop m-r"></i> Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="{{path('book')}}"><i class="fa fa-book m-r"></i> Buku</a>
+                            </li>
+                            <li>
+                                <a href="{{path('rent')}}"><i class="fa fa-file-o m-r"></i> Penyewaan</a>
+                            </li>
+                            <li>
+                                <a href="{{path('report')}}"><i class="fa fa-bar-chart-o m-r"></i> Laporan</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.sidebar-collapse -->
+                </div>
+                <!-- /.navbar-static-side -->
+            </nav>
+
+            <div id="page-wrapper">
+            {% block content %}{% endblock %}
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <script src="{{app.asset_component}}angular/angular.min.js"></script>
+    <script src="{{app.asset_component}}jquery/dist/jquery.min.js"></script>
+    <script src="{{app.asset_component}}bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{app.asset_component}}sb-admin-2/vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="{{app.asset_component}}sb-admin-2/vendor/raphael/raphael.min.js"></script>
+    <script src="{{app.asset_component}}sb-admin-2/vendor/morrisjs/morris.min.js"></script>
+    <script src="{{app.asset_component}}sb-admin-2/data/morris-data.js"></script>
+    <script src="{{app.asset_component}}sb-admin-2/dist/js/sb-admin-2.js"></script>
+    <script src="{{app.asset_component}}gasparesganga-jquery-loading-overlay/src/loadingoverlay.min.js"></script>
+
+    <!-- Angular -->
+    <script src="{{app.asset_app}}app.js"></script>
+    <script src="{{app.asset_app}}Service/LibraryService.js"></script>
+    <script src="{{app.asset_app}}Controller/BookController.js"></script>
+
+    <script src="{{app.asset_js}}main.js"></script>
+
+</body>
+
+</html>
