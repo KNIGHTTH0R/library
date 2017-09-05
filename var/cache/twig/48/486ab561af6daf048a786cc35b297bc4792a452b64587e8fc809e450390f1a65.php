@@ -81,7 +81,7 @@ class __TwigTemplate_ecfdcee8884cd133bc1ba03bfa778345bf232596a8c3429b0d3b71964ce
                 <div class=\"modal-content\">
                     <div class=\"modal-header\">
                         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
-                        <h4 class=\"modal-title\" id=\"myModalLabel\">Add Book</h4>
+                        <h4 class=\"modal-title\" id=\"myModalLabel\">Book</h4>
                     </div>
                     ";
         // line 109
@@ -222,7 +222,7 @@ class __TwigTemplate_ecfdcee8884cd133bc1ba03bfa778345bf232596a8c3429b0d3b71964ce
                 <div class=\"modal-content\">
                     <div class=\"modal-header\">
                         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
-                        <h4 class=\"modal-title\" id=\"myModalLabel\">Add Book</h4>
+                        <h4 class=\"modal-title\" id=\"myModalLabel\">Book</h4>
                     </div>
                     {% verbatim %}
                         <div class=\"modal-body\">

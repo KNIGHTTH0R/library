@@ -1,7 +1,7 @@
 "use strict";
-app.controller('BookController', function ($scope, LibraryService) {
+app.controller('RentController', function ($scope, LibraryService) {
 
-    $scope.genres = $scope.publishers = $scope.authors = $scope.books = [];
+    $scope.genres = $scope.publishers = $scope.authors = $scope.authors = [];
     $scope.book = {};
     $scope.edit = true;
 
@@ -35,7 +35,7 @@ app.controller('BookController', function ($scope, LibraryService) {
             delete($scope.book.genre_name);
             delete($scope.book.author_name);
             delete($scope.book.status);
-            $.post(base_url + "book/edit/" + $scope.book.id, $scope.book, function (response) {
+            $.post(base_url + "book/edit/" + id, $scope.book, function (response) {
                 if (response.code == 200) {
                     // close modal
                     $('#addBookModal').modal('hide');

@@ -1,7 +1,7 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-    <div ng-controller="BookController">
+    <div ng-controller="RentController">
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
@@ -11,31 +11,29 @@
                     <div class="panel-body">
                         <div class="container m-b">
                             <div class="row">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addBookModal">Tambah buku</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addRentModal">Sewa</button>
                             </div>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>ISBN</th>
-                                        <th>Title</th>
-                                        <th>Genre</th>
-                                        <th>Penerbit</th>
-                                        <th>Penulis</th>
+                                        <th>Order Number</th>
+                                        <th>Member</th>
+                                        <th>Buku</th>
+                                        <th>Tanggal Pinjam</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="row in books">
-                                        <th>{[{ row.isbn }]}</th>
-                                        <th>{[{ row.title }]} ({[{row.year}]})</th>
-                                        <th>{[{ row.genre_name }]}</th>
-                                        <th>{[{ row.publisher_name }]}</th>
-                                        <th>{[{ row.author_name }]}</th>
+                                        <th>{[{ row.order_number }]}</th>
+                                        <th>{[{ row.member_name }]}</th>
+                                        <th>{[{ row.book_title }]}</th>
+                                        <th>{[{ row.start_date }]}</th>
                                         <th>
-                                            <a href="" class="btn btn-primary" data-toggle="modal" data-target="#addBookModal" ng-click="parseDataBook(row)">Edit Buku</a>
-                                            <a href="" class="btn btn-danger deleteBookButton" ng-click="deleteBook(row)">Hapus</a>
+                                            <a href="" class="btn btn-primary" data-toggle="modal" data-target="#addBookModal" ng-click="parseDataRent(row)">Edit Buku</a>
+                                            <a href="" class="btn btn-danger deleteRentButton" ng-click="deleteRent(row)">Hapus</a>
                                         </th>
                                     </tr>
                                 </tbody>
@@ -47,67 +45,46 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="addBookModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal fade" id="addRentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Add Book</h4>
+                        <h4 class="modal-title" id="myModalLabel">Penyewaan</h4>
                     </div>
                     {% verbatim %}
                         <div class="modal-body">
                             <form id="addBookForm">
                                 <div class="form-group">
-                                    <label for="title">ISBN</label>
-                                    <div class="input-group">
-                                        <input name="isbn" type="text" class="form-control" placeholder="ISBN" ng-model="book.isbn">
-                                        <span class="input-group-btn">
-                                            <a href="#" class="btn btn-default check-isbn" type="button">Cek ISBN</a>
-                                        </span>
-                                    </div>
+                                    <label for="title">Order Number</label>
+                                    <input name="isbn" type="text" class="form-control" placeholder="Order Number" ng-model="rent.order_number">
                                 </div>
                                 <div class="form-group">
-                                    <label for="title">Judul Buku</label>
-                                    <input name="title" type="text" class="form-control" placeholder="Judul Buku" ng-model="book.title">
-                                </div>
-                                <div class="form-group">
-                                    <label for="publisher_id">Penerbit</label>
-                                    <select class="form-control" name="publisher_id" ng-model="book.publisher_id">
-                                        <option ng-repeat="publisher in publishers" value="{[{publisher.id}]}">{[{publisher.name}]}</option>
+                                    <label for="title">Member</label>
+                                    <select class="form-control" name="member_id" ng-model="rent.member_id">
+                                        <option ng-repeat="member in members" value="{[{member.id}]}">{[{member.name}]}</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="author_id">Penulis</label>
-                                    <select class="form-control" name="author_id" ng-model="book.author_id">
-                                        <option ng-repeat="author in authors" value="{[{author.id}]}">{[{author.name}]}</option>
+                                    <label for="title">Buku</label>
+                                    <select class="form-control" name="publisher_id" ng-model="rent.book_id">
+                                        <option ng-repeat="book in books" value="{[{book.id}]}">{[{book.name}]}</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="genre_id">Genre</label>
-                                    <select class="form-control" name="genre" ng-model="book.genre_id">
-                                        <option ng-repeat="genre in genres" value="{[{genre.id}]}">{[{genre.name}]}</option>
-                                    </select>
+                                    <label for="title">Tanggal Penyewaan</label>
+                                    <input name="start_date" type="text" class="form-control" placeholder="YYYY-MM-DD" ng-model="rent.start_date">
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="number_of_page">Jumlah Halaman</label>
-                                            <input name="number" type="number" class="form-control" placeholder="Jumlah Halaman" ng-model="book.number_of_page">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="year">Tahun Terbit</label>
-                                            <input name="year" type="year" class="form-control" placeholder="Tahun Terbit" maxlength="4" minlength="4" ng-model="book.year">
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="title">Tanggal Pengembalian</label>
+                                    <input name="return_date" type="text" class="form-control" placeholder="YYYY-MM-DD" ng-model="rent.return_date">
                                 </div>
                             </form>
                         </div>
                     {% endverbatim %}
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary addBookButton">Save changes</button>
+                        <button type="button" class="btn btn-primary addRentButton">Save changes</button>
                     </div>
                 </div>
             </div>
