@@ -6,6 +6,7 @@ Tools
 Silex 2, Doctrine, Twig, Angular, jQuery, Font Awesome, jQuery loading Overlay,
 
 Dependency Tool : Composer & Yarn
+
 Template : admin-sb-2
 
 Usage
