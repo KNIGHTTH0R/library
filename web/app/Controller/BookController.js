@@ -34,6 +34,7 @@ app.controller('BookController', function ($scope, LibraryService) {
             delete($scope.book.publisher_name);
             delete($scope.book.genre_name);
             delete($scope.book.author_name);
+            delete($scope.book.status);
             $.post(base_url + "book/edit/" + id, $scope.book, function (response) {
                 if (response.code == 200) {
                     // close modal

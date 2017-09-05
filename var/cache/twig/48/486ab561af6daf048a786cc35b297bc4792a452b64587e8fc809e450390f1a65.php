@@ -50,6 +50,7 @@ class __TwigTemplate_ecfdcee8884cd133bc1ba03bfa778345bf232596a8c3429b0d3b71964ce
                                         <th>Genre</th>
                                         <th>Penerbit</th>
                                         <th>Penulis</th>
+                                        <th>Status</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -60,6 +61,7 @@ class __TwigTemplate_ecfdcee8884cd133bc1ba03bfa778345bf232596a8c3429b0d3b71964ce
                                         <th>{[{ row.genre_name }]}</th>
                                         <th>{[{ row.publisher_name }]}</th>
                                         <th>{[{ row.author_name }]}</th>
+                                        <th><span ng-class=\"{'label label-info': row.status == 'Tersedia', 'label label-danger'}\">{[{ row.status }]}</span></th>
                                         <th>
                                             <a href=\"\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#addBookModal\" ng-click=\"parseDataBook(row)\">Edit Buku</a>
                                             <a href=\"\" class=\"btn btn-danger deleteBookButton\" ng-click=\"deleteBook(row)\">Hapus</a>
@@ -82,7 +84,7 @@ class __TwigTemplate_ecfdcee8884cd133bc1ba03bfa778345bf232596a8c3429b0d3b71964ce
                         <h4 class=\"modal-title\" id=\"myModalLabel\">Add Book</h4>
                     </div>
                     ";
-        // line 107
+        // line 109
         echo "
                         <div class=\"modal-body\">
                             <form id=\"addBookForm\">
@@ -159,7 +161,7 @@ class __TwigTemplate_ecfdcee8884cd133bc1ba03bfa778345bf232596a8c3429b0d3b71964ce
 
     public function getDebugInfo()
     {
-        return array (  86 => 107,  31 => 4,  28 => 3,  11 => 1,);
+        return array (  88 => 109,  31 => 4,  28 => 3,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -189,6 +191,7 @@ class __TwigTemplate_ecfdcee8884cd133bc1ba03bfa778345bf232596a8c3429b0d3b71964ce
                                         <th>Genre</th>
                                         <th>Penerbit</th>
                                         <th>Penulis</th>
+                                        <th>Status</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -199,6 +202,7 @@ class __TwigTemplate_ecfdcee8884cd133bc1ba03bfa778345bf232596a8c3429b0d3b71964ce
                                         <th>{[{ row.genre_name }]}</th>
                                         <th>{[{ row.publisher_name }]}</th>
                                         <th>{[{ row.author_name }]}</th>
+                                        <th><span ng-class=\"{'label label-info': row.status == 'Tersedia', 'label label-danger'}\">{[{ row.status }]}</span></th>
                                         <th>
                                             <a href=\"\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#addBookModal\" ng-click=\"parseDataBook(row)\">Edit Buku</a>
                                             <a href=\"\" class=\"btn btn-danger deleteBookButton\" ng-click=\"deleteBook(row)\">Hapus</a>

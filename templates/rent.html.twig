@@ -23,7 +23,6 @@
                                         <th>Genre</th>
                                         <th>Penerbit</th>
                                         <th>Penulis</th>
-                                        <th>Status</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -34,7 +33,6 @@
                                         <th>{[{ row.genre_name }]}</th>
                                         <th>{[{ row.publisher_name }]}</th>
                                         <th>{[{ row.author_name }]}</th>
-                                        <th><span ng-class="{'label label-info': row.status == 'Tersedia', 'label label-danger'}">{[{ row.status }]}</span></th>
                                         <th>
                                             <a href="" class="btn btn-primary" data-toggle="modal" data-target="#addBookModal" ng-click="parseDataBook(row)">Edit Buku</a>
                                             <a href="" class="btn btn-danger deleteBookButton" ng-click="deleteBook(row)">Hapus</a>
@@ -54,7 +52,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Book</h4>
+                        <h4 class="modal-title" id="myModalLabel">Add Book</h4>
                     </div>
                     {% verbatim %}
                         <div class="modal-body">

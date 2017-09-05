@@ -12,7 +12,7 @@ class BookController {
     }
 
     public function get(Application $app) {
-        $books = $app['db']->fetchAll("SELECT b.id, b.title, b.author_id, b.publisher_id, b.genre_id, b.isbn, b.number_of_page, b.year, p.name publisher_name, g.name genre_name, a.name author_name FROM books b
+        $books = $app['db']->fetchAll("SELECT b.id, b.title, b.author_id, b.publisher_id, b.genre_id, b.isbn, b.number_of_page, b.year, IF(b.status = 'IN', 'Tersedia', 'Tidak Tersedia') status, p.name publisher_name, g.name genre_name, a.name author_name FROM books b
             LEFT JOIN publishers p ON p.id = b.publisher_id
             LEFT JOIN authors a ON a.id = b.author_id
             LEFT JOIN genres g ON g.id = b.genre_id
