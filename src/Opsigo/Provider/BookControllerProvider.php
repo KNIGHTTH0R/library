@@ -16,6 +16,8 @@ class BookControllerProvider implements ControllerProviderInterface
         })->bind('book');
         $controllers->get("/get", "Opsigo\\Controller\\BookController::get");
         $controllers->post("/add", "Opsigo\\Controller\\BookController::add");
+        $controllers->post("/edit/{id}", "Opsigo\\Controller\\BookController::edit");
+        $controllers->get("/delete/{id}", "Opsigo\\Controller\\BookController::delete");
 
         return $controllers;
     }

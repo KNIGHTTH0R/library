@@ -20,6 +20,7 @@
                                     <tr>
                                         <th>ISBN</th>
                                         <th>Title</th>
+                                        <th>Genre</th>
                                         <th>Penerbit</th>
                                         <th>Penulis</th>
                                         <th></th>
@@ -29,8 +30,9 @@
                                     <tr ng-repeat="row in books">
                                         <th>{[{ row.isbn }]}</th>
                                         <th>{[{ row.title }]} ({[{row.year}]})</th>
-                                        <th>{[{ row.publisher.name }]}</th>
-                                        <th>{[{ row.author.name }]}</th>
+                                        <th>{[{ row.genre_name }]}</th>
+                                        <th>{[{ row.publisher_name }]}</th>
+                                        <th>{[{ row.author_name }]}</th>
                                         <th>
                                             <a href="" class="btn btn-primary" data-toggle="modal" data-target="#addBookModal" ng-click="parseDataBook(row)">Edit Buku</a>
                                             <a href="" class="btn btn-danger deleteBookButton" ng-click="deleteBook(row)">Hapus</a>

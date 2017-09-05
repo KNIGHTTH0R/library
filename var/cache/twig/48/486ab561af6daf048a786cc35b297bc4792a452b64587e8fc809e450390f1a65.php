@@ -47,6 +47,7 @@ class __TwigTemplate_ecfdcee8884cd133bc1ba03bfa778345bf232596a8c3429b0d3b71964ce
                                     <tr>
                                         <th>ISBN</th>
                                         <th>Title</th>
+                                        <th>Genre</th>
                                         <th>Penerbit</th>
                                         <th>Penulis</th>
                                         <th></th>
@@ -56,8 +57,9 @@ class __TwigTemplate_ecfdcee8884cd133bc1ba03bfa778345bf232596a8c3429b0d3b71964ce
                                     <tr ng-repeat=\"row in books\">
                                         <th>{[{ row.isbn }]}</th>
                                         <th>{[{ row.title }]} ({[{row.year}]})</th>
-                                        <th>{[{ row.publisher.name }]}</th>
-                                        <th>{[{ row.author.name }]}</th>
+                                        <th>{[{ row.genre_name }]}</th>
+                                        <th>{[{ row.publisher_name }]}</th>
+                                        <th>{[{ row.author_name }]}</th>
                                         <th>
                                             <a href=\"\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#addBookModal\" ng-click=\"parseDataBook(row)\">Edit Buku</a>
                                             <a href=\"\" class=\"btn btn-danger deleteBookButton\" ng-click=\"deleteBook(row)\">Hapus</a>
@@ -80,7 +82,7 @@ class __TwigTemplate_ecfdcee8884cd133bc1ba03bfa778345bf232596a8c3429b0d3b71964ce
                         <h4 class=\"modal-title\" id=\"myModalLabel\">Add Book</h4>
                     </div>
                     ";
-        // line 105
+        // line 107
         echo "
                         <div class=\"modal-body\">
                             <form id=\"addBookForm\">
@@ -157,7 +159,7 @@ class __TwigTemplate_ecfdcee8884cd133bc1ba03bfa778345bf232596a8c3429b0d3b71964ce
 
     public function getDebugInfo()
     {
-        return array (  84 => 105,  31 => 4,  28 => 3,  11 => 1,);
+        return array (  86 => 107,  31 => 4,  28 => 3,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -184,6 +186,7 @@ class __TwigTemplate_ecfdcee8884cd133bc1ba03bfa778345bf232596a8c3429b0d3b71964ce
                                     <tr>
                                         <th>ISBN</th>
                                         <th>Title</th>
+                                        <th>Genre</th>
                                         <th>Penerbit</th>
                                         <th>Penulis</th>
                                         <th></th>
@@ -193,8 +196,9 @@ class __TwigTemplate_ecfdcee8884cd133bc1ba03bfa778345bf232596a8c3429b0d3b71964ce
                                     <tr ng-repeat=\"row in books\">
                                         <th>{[{ row.isbn }]}</th>
                                         <th>{[{ row.title }]} ({[{row.year}]})</th>
-                                        <th>{[{ row.publisher.name }]}</th>
-                                        <th>{[{ row.author.name }]}</th>
+                                        <th>{[{ row.genre_name }]}</th>
+                                        <th>{[{ row.publisher_name }]}</th>
+                                        <th>{[{ row.author_name }]}</th>
                                         <th>
                                             <a href=\"\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#addBookModal\" ng-click=\"parseDataBook(row)\">Edit Buku</a>
                                             <a href=\"\" class=\"btn btn-danger deleteBookButton\" ng-click=\"deleteBook(row)\">Hapus</a>
